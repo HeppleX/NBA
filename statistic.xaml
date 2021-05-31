@@ -1,0 +1,41 @@
+﻿<Window x:Class="NBA.statistic"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NBA"
+        mc:Ignorable="d"
+        Title="statistic" Height="566" Width="439">
+    <Window.DataContext>
+        <local:NBAviewmodel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250*"/>
+            <ColumnDefinition Width="199*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="球员数据" HorizontalAlignment="Left" Margin="200,0,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Grid.ColumnSpan="2" />
+        <Label Content="球员姓名：" HorizontalAlignment="Left" Margin="50,50,0,0" VerticalAlignment="Top" FontSize="18" />
+        <Label Content="得分：" HorizontalAlignment="Left" Margin="50,100,0,0" VerticalAlignment="Top" FontSize="18" />
+        <Label Content="篮板：" HorizontalAlignment="Left" Margin="50,150,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="助攻：" HorizontalAlignment="Left" Margin="50,200,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="抢断：" HorizontalAlignment="Left" Margin="50,250,0,0" VerticalAlignment="Top" FontSize="18" />
+        <Label Content="盖帽：" HorizontalAlignment="Left" Margin="50,300,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="命中率：" HorizontalAlignment="Left" Margin="50,350,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="三分命中率：" HorizontalAlignment="Left" Margin="50,400,0,0" VerticalAlignment="Top" FontSize="18" />
+        <Label Content="罚球命中率：" HorizontalAlignment="Left" Margin="50,450,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="160,50,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Text="{Binding nbamodel.Pname}" Grid.ColumnSpan="2"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="160,100,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="250" VerticalContentAlignment="Center" FontSize="18" Text="{Binding nbamodel.Score}" HorizontalContentAlignment="Center" Grid.ColumnSpan="2"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="160,150,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Text="{Binding nbamodel.Rebound}" Grid.ColumnSpan="2"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="160,200,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="250" FontSize="18" Text="{Binding nbamodel.Assist}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="160,250,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="250" FontSize="18" Text="{Binding nbamodel.Steal}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="160,300,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="250" FontSize="18" Text="{Binding nbamodel.Block}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="160,350,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="250" FontSize="18" Text="{Binding nbamodel.SP}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="160,400,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="250" FontSize="18" Text="{Binding nbamodel.TSP}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="160,450,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="250" FontSize="18" Text="{Binding nbamodel.FSP}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+        <Button Content="|&lt;" HorizontalAlignment="Left" Margin="60,500,0,0" VerticalAlignment="Top" Width="50" FontSize="15"  Command="{Binding OperateCommand}" />
+        <Button Content="&lt;" HorizontalAlignment="Left" Margin="160,500,0,0" VerticalAlignment="Top" Width="50" FontSize="15"  Command="{Binding OperateCommand1}"/>
+        <Button Content="&gt;" HorizontalAlignment="Left" Margin="10.5,500,0,0" VerticalAlignment="Top" Width="50" FontSize="15"  Command="{Binding OperateCommand2}" Grid.Column="1"/>
+        <Button Content="&gt;|" HorizontalAlignment="Left" Margin="110.5,500,0,0" VerticalAlignment="Top" Width="50" FontSize="15"  Command="{Binding OperateCommand3}" Grid.Column="1"/>
+    </Grid>
+</Window>

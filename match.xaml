@@ -1,0 +1,29 @@
+﻿<Window x:Class="NBA.match"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NBA"
+        mc:Ignorable="d"
+        Title="match" Height="228" Width="534.5">
+    <Window.DataContext>
+        <local:NBAviewmodel/>
+    </Window.DataContext>
+    <Grid>
+        <Label Content="比赛结果" HorizontalAlignment="Left" Margin="220,0,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Grid.ColumnSpan="2" />
+        <Label Content="主场球队：" HorizontalAlignment="Left" Margin="50,50,0,0" VerticalAlignment="Top" FontSize="18" />
+        <Label Content="客场球队：" HorizontalAlignment="Left" Margin="50,100,0,0" VerticalAlignment="Top" FontSize="18" />
+        <Label Content="主队得分：" HorizontalAlignment="Left" Margin="300,50,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="客队得分：" HorizontalAlignment="Left" Margin="300,100,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <ComboBox x:Name="combobox3" ItemsSource="{Binding nbamodel.DataSet.Tables[0]}" DisplayMemberPath="Tname" SelectedValuePath="Tid" SelectedValue="{Binding nbamodel.HTid}" 
+                  HorizontalAlignment="Left" Margin="150,50,0,0" VerticalAlignment="Top" Width="150" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="33" FontSize="18"/>
+        <ComboBox x:Name="combobox4" ItemsSource="{Binding nbamodel.DataSet.Tables[0]}" DisplayMemberPath="Tname" SelectedValuePath="Tid" SelectedValue="{Binding nbamodel.ATid}" 
+                  HorizontalAlignment="Left" Margin="150,100,0,0" VerticalAlignment="Top" Width="150" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="33" FontSize="18"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="400,50,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Text="{Binding nbamodel.Hscore}" Grid.ColumnSpan="2"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="400,100,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="100" FontSize="18" Text="{Binding nbamodel.Ascore}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+        <Button Content="|&lt;" HorizontalAlignment="Left" Margin="100,150,0,0" VerticalAlignment="Top" Width="50" FontSize="15"  Command="{Binding OperateCommand}" />
+        <Button Content="&lt;" HorizontalAlignment="Left" Margin="200,150,0,0" VerticalAlignment="Top" Width="50" FontSize="15"  Command="{Binding OperateCommand1}"/>
+        <Button Content="&gt;" HorizontalAlignment="Left" Margin="300,150,0,0" VerticalAlignment="Top" Width="50" FontSize="15"  Command="{Binding OperateCommand2}" />
+        <Button Content="&gt;|" HorizontalAlignment="Left" Margin="400,150,0,0" VerticalAlignment="Top" Width="50" FontSize="15"  Command="{Binding OperateCommand3}" />
+    </Grid>
+</Window>
